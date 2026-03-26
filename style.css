@@ -1,0 +1,212 @@
+.main-header {
+    background: linear-gradient(rgb(14, 5, 7), rgba(248, 7, 7, 0.751)); 
+               /* url('fondo tacos.jpg');  Ruta a tu imagen */
+    background-size: cover;
+    background-position: center;
+    color: rgb(242, 227, 227);
+    padding: 60px 20px;
+    margin: 0 0 10px 0;
+}
+/* --- Estilos Generales --- */
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #d9e070;
+}
+
+h1 {
+    text-align: center;
+    color: #d81414;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* --- Catálogo y Tarjetas --- */
+.catalog {
+    flex: 2;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: linear-gradient(rgb(177, 13, 13), rgba(255, 251, 251, 0.751));
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Imágenes de Productos --- */
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* --- Estilo de la Nube (Tooltip) --- */
+
+/* Necesitamos que el contenedor de la imagen sea la referencia */
+.product-image-container {
+    position: relative; /* Muy importante para posicionar la nube dentro */
+    overflow: visible !important; /* Cambiamos de 'hidden' a 'visible' para que la nube sobresalga */
+}
+
+.product-tooltip {
+    visibility: hidden;
+    width: 160px;
+    background-color: #333; /* Color de la nube */
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+    bottom: 110%; /* Aparece arriba de la imagen */
+    left: 50%;
+    margin-left: -80px; /* Centra la nube (mitad de su ancho) */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* El "triangulito" de la parte inferior de la nube */
+.product-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* MOSTRAR LA NUBE al pasar el mouse por la tarjeta */
+.product-card:hover .product-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.product-card:hover .product-tooltip {
+    animation: floating 2s ease-in-out infinite;
+}
+
+.product-card h3 {
+    font-size: 1.1em;
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.6em;
+}
+
+.price {
+    font-size: 1.3em;
+    color: #0f6f0e;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+}
+
+/* --- Carrito de Compras --- */
+.cart-section {
+    flex: 1;
+    min-width: 300px;
+    background: rgb(210, 142, 69);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 20px;
+    box-sizing: border-box;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #000000;
+    font-style: italic;
+}
+
+/* --- Botones --- */
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-add {
+    background-color: #3498db;
+    color: white;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-add:hover {
+    background-color: #2980b9;
+}
+
+.btn-remove {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+.btn-remove:hover {
+    background-color: #c0392b;
+}
+
+.total-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #333;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3em;
+    font-weight: bold;
+}
