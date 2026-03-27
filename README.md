@@ -15,6 +15,8 @@ renderCatalog(): nos ayuda a dibujar los productos.
   updateCartUI():  hace los cálculos finales, bucle de cálculo que ecorre el carrito y multiplica precio * cantidad para obtener el subtotal.
 Cálculo de IVA, Aplica el 16% sobre el subtotal (subtotal x 0.16).
 
+  En el código HTML, JavaScript y CSS se presentan a mayor detalle las descripciones.
+
 ¿Qué retos encontraron?
   En lo personal me enseñó a buscar funciones nuevas para el diseño de mi pagina, desarrollando mi formación autodidacta y curiosa.
   Otro reto al que me enfrenté es unir los tres documentos, ya que fue algo nuevo para mi, así como el uso de JavaScript con las funciones. 
